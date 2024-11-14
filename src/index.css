@@ -1,0 +1,16 @@
+body{
+    margin: 0;
+
+    background-image: url("../img/fondo.png");
+    background-position: center;
+    font-family: "Odibee Sans"
+}
+
+.index__cont{
+    text-align: center;
+    
+
+}
+
+
+
