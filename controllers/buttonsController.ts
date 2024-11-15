@@ -27,14 +27,18 @@ const handleButtons = () => {
   });
 };
 
+
 const disableOtherButtons = (selectedButton) => {
+ 
   imgButton?.forEach((button) => {
     if (button !== selectedButton) {
-      button.classList.add("disabled"); // Añadir la clase 'disabled' al contenedor// add disabled class to container
+      button.style = "display:none"
     }
     showPcButton();
   });
 };
+
+
 const showPcButton = () => {
   while (root.firstChild) {
     root.removeChild(root.firstChild);
@@ -64,17 +68,7 @@ const showPcButton = () => {
     }
   }
 
-  if (state.matchCounter.me > 0 || state.matchCounter.pc > 0) {
-    const gameButtons = document.querySelector("game-buttons") as HTMLElement;
-    const content = gameButtons.shadowRoot?.querySelector("div");
-   
-    
-    content?.classList.add("disabled");
-    content?.classList.remove("selected");
 
-  
-  }
-  
   root.appendChild(addPcImage);
 };
 handleButtons();

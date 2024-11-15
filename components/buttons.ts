@@ -65,6 +65,8 @@ class Buttons extends HTMLElement {
       content.appendChild(img);
     }
 
+ 
+
     //adhiero el style y le hago append a mi shadow // add my style and make append to my shadow
     content.classList.add("img__content");
     content.classList.add("disabled");

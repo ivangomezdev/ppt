@@ -69,8 +69,12 @@ class StartGames extends HTMLElement {
         
         if (state.results.includes("Victoria")) {
           title.src = resultado.victoria
+          cont.style.backgroundColor = "green"  
         }else if (state.results.includes("Derrota")){
           title.src = resultado.derrota
+        }else{
+          cont.style.backgroundColor = "orange"
+
         }
         
       
@@ -93,8 +97,10 @@ class StartGames extends HTMLElement {
     
 
       btn.addEventListener("click",(e)=>{
-        goTo("/")
-        console.log(e);
+        
+        state.resetState();
+        goTo("/howTo")
+      
         
         
       })

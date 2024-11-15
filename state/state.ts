@@ -13,6 +13,12 @@ export const state = {
     return this.results;
   },
 
+  resetState: function () {
+    this.pcChoice = "";
+    this.results = [];
+
+ },
+
   //funcion donde la pc escoge entre p,p o t // function where the pc chooses between r,p or s
   pcSelectChoice: function () {
     //buscar un numero aleatorio entre 0 y 2 // search a aleatory number between 0 and 2
@@ -25,7 +31,7 @@ export const state = {
     } else if (ppot === 2) {
       this.pcChoice = "tijera";
     }
-    console.log("PC ESCOGE ", this.pcChoice);
+    
   },
 
   //funcion donde el usuario escoge entre p,p o t // function where the user chooses between r,p or s
@@ -34,7 +40,7 @@ export const state = {
     //llamo a la eleccion PC // call to pc election
     this.pcSelectChoice();
     this.processResult(option)
-    console.log("usuario elige", option);
+  
 
     this.listeners.forEach((callback) => callback(option));
     
@@ -53,7 +59,7 @@ export const state = {
       this.results = "Derrota";
         this.matchCounter.pc++
     }else{
-        console.log("empate");
+        
         
     }
   },
@@ -61,40 +67,40 @@ export const state = {
   //procesar resultado // process results
   processResult: function (election) {
     if (election === this.pcChoice) {
-      console.log("empate");
+      
     } else if (election == "piedra") {
       if (this.pcChoice == "papel") {
         
-        console.log("Derrota");
         this.handleVictory("Derrota");
-        console.log(this.matchCounter);
+       
       } else if (this.pcChoice == "tijera") {
         this.handleVictory("Victoria")
         
-        console.log(this.matchCounter);
+        
       }
     } else if (election == "papel") {
       if (this.pcChoice == "tijera") {
         this.handleVictory("Derrota");
-        console.log(this.matchCounter);
-        console.log("Derrota");
+        
+        
       } else if (this.pcChoice == "piedra") {
         this.handleVictory("Victoria");
-        console.log(this.matchCounter);
-        console.log("Victoria");
+        
+        
       }
     } else if (election == "tijera") {
       if (this.pcChoice == "papel") {
-        this.handleVictory("Derrota");
-        console.log(this.matchCounter);
-        console.log("Derrota");
-      } else if (this.pcChoice == "piedra") {
         this.handleVictory("Victoria");
-        console.log(this.matchCounter);
+        
+        
+      } else if (this.pcChoice == "piedra") {
+        this.handleVictory("Derrota");
+        
 
-        console.log("Victoria");
+        
       }
     }
+   
   },
 
 
