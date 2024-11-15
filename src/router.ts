@@ -6,17 +6,27 @@ export const goTo = (path) => {
 const handleRoutes = (path) => {
   const routes = [
     {
-      route: "/resultado",
+      route: "/howTo",
       handle: () => {
-        loadResultPage("/resultado");
+        howToPage();
       },
     },
     {
       route: "/",
       handle: () => {
-        loadResultPage("/");
+        loadHomePage();
       },
-    },
+    },{
+        route: "/play",
+        handle: () => {
+          playPage();
+        },
+      },{
+        route: "/result",
+        handle: () => {
+          ResultPage();
+        },
+      }
   ];
   for (const r of routes) {
     if (r.route == path) {
@@ -28,28 +38,55 @@ const handleRoutes = (path) => {
   }
 };
 
-const loadResultPage = (path) => {
-  // Obtener el contenedor donde se cargará el contenido // obtain content
-  const contentContainer = document.querySelector("start-cont")
-    ?.shadowRoot as ShadowRoot;
-  const buttonsCont = document.querySelector("game-buttons")
-    ?.shadowRoot as ShadowRoot;
+const loadHomePage = () => {
+    const root = document.getElementById('root') as HTMLElement;
+    console.log(root);
+    
+    root.innerHTML = '';  // Limpiar cualquier contenido previo
+  
+    // Insertar el componente <start-cont> en el contenedor
+    const startGameComponent = document.createElement('start-cont');
+    root.appendChild(startGameComponent); // Añadir el componente al DOM
+  };
 
+  const howToPage = () => {
+    const root = document.getElementById('root') as HTMLElement;
+    
+    root.innerHTML = '';  // Limpiar cualquier contenido previo
+    
+    // Insertar el componente <start-cont> en el contenedor
+    const startGameComponent = document.createElement('instructive-cont');
+    
+    console.log(startGameComponent);
+    root.appendChild(startGameComponent); // Añadir el componente al DOM
+  };
 
-    contentContainer.innerHTML = "";
-    buttonsCont.innerHTML = "";
- 
-    if (path == "/resultado") {
-
-    const resultContent = document.createElement("start-conts");
-    contentContainer.appendChild(resultContent);
-  } else {
-    const resultContent = document.createElement("start-cont");
-    const buttonsGame = document.createElement("game-buttons");
-    contentContainer.appendChild(resultContent);
-    contentContainer.appendChild(buttonsGame);
+  const playPage = () =>{
+    const root = document.getElementById("root") as HTMLElement;
+    root.innerHTML = "";
+    const playCont = document.createElement("play-content")
+    root.appendChild(playCont)
+        console.log(playCont);
+  
+    
+   
+    
     
   }
 
-  // Crear el nuevo contenido // createContent
-};
+  const ResultPage = () =>{
+    const root = document.getElementById("root") as HTMLElement;
+    root.innerHTML = "";
+    const results = document.createElement("start-conts")
+    root.appendChild(results)
+    
+  }
+
+
+
+  // Inicialización al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    handleRoutes(window.location.pathname); // Maneja la ruta inicial
+
+  });
+

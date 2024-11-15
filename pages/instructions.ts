@@ -1,12 +1,8 @@
 import { goTo } from "../src/router";
 
-class StartGame extends HTMLElement {
+class Instruct extends HTMLElement {
   constructor() {
     super();
-
-
-
-    
 
     // Crear shadow root
     const shadow = this.attachShadow({ mode: "open" });
@@ -21,13 +17,11 @@ class StartGame extends HTMLElement {
     const style = document.createElement("style");
 
     // Agregar contenido
-    title.textContent = "Piedra Papel Tijeras";
-    btn.textContent = "Empezar";
+    title.textContent = `Presioná jugar
+y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.`;
+    btn.textContent = "Jugar";
     btn.id = "0"; // Cambié el id para ser más descriptivo
     btn.setAttribute("aria-label", "Empezar juego"); // Atributo de accesibilidad para el botón
-
-
-    
 
     // Estilos CSS en un solo bloque
     style.textContent = `
@@ -37,7 +31,7 @@ class StartGame extends HTMLElement {
         justify-content: center;
         align-items: center;
         text-align: center;
-        
+        margin-top:25px;
       }
 
       .start__btn {
@@ -58,10 +52,10 @@ class StartGame extends HTMLElement {
       }
 
       .start__h1 {
-        width: 280px;
+        width: 400px;
         margin: 0 auto;
-        color: #009048;
-        font-size: 90px;
+        color: black;
+        font-size: 60px;
         text-align: center;
         font-weight: 700;
         line-height: 1.1;
@@ -75,7 +69,7 @@ class StartGame extends HTMLElement {
     title.classList.add("start__h1");
 
     btn.addEventListener("click",(e)=>{
-     goTo("/howTo")
+     goTo("/play")
     })
 
     // Append al shadow DOM
@@ -83,10 +77,9 @@ class StartGame extends HTMLElement {
     cont.appendChild(title);
     cont.appendChild(btn);
     shadow.appendChild(cont);
-
-
   }
+  
 }
 
 // Definir el componente
-customElements.define("start-cont", StartGame);
+customElements.define("instructive-cont", Instruct);

@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     root.addEventListener("click",()=>{
        const intervalId =  setInterval(() => {
-          goTo("/resultado")
+          goTo("/result")
          rootDiv.style = "display:none"
          
 
