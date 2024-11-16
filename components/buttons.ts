@@ -1,9 +1,12 @@
    // llamo a mis imgs //call to my imgs
-   import piedra from '../img/piedra.png';
-   import papel from '../img/papel.png';
-   import tijera from '../img/tijera.png';
-   import victoria from "../img/victoria.png"
-   import derrota from "../img/derrota.png"
+   const piedra = require("url:../img/piedra.png");
+   const papel = require("url:../img/papel.png");
+   const tijera = require("url:../img/tijera.png");
+   const victoria = require("url:../img/victoria.png");
+   const derrota = require("url:../img/derrota.png");
+
+
+ 
    //llamo a las URL de mis IMG // call Img URL
 
    export  const images = [
